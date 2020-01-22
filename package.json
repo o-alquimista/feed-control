@@ -1,0 +1,24 @@
+{
+  "name": "feed-control",
+  "version": "1.0.0",
+  "description": "An implementation of the W3C Feed Pattern",
+  "main": "feed.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/o-alquimista/feed-control.git"
+  },
+  "keywords": [
+    "feed",
+    "ajax",
+    "infinite-scrolling"
+  ],
+  "author": "Douglas Silva (https://dougsilva.me)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/o-alquimista/feed-control/issues"
+  },
+  "homepage": "https://github.com/o-alquimista/feed-control#readme"
+}
