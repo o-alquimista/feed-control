@@ -1,9 +1,9 @@
 /**
  * Copyright 2019-2020 Douglas Silva (0x9fd287d56ec107ac)
  *
- * This file is part of KaBuM!.
+ * This file is part of Feed Control.
  *
- * KaBuM! is free software: you can redistribute it and/or modify
+ * Feed Control is free software: you can redistribute it and/or modify
  * it under the terms of the GNU Affero General Public License as published by
  * the Free Software Foundation, either version 3 of the License, or
  * (at your option) any later version.
@@ -14,7 +14,7 @@
  * GNU Affero General Public License for more details.
  *
  * You should have received a copy of the GNU Affero General Public License
- * along with KaBuM!.  If not, see <https://www.gnu.org/licenses/>.
+ * along with Feed Control.  If not, see <https://www.gnu.org/licenses/>.
  */
 
 const $ = require('jquery');
