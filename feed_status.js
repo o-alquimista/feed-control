@@ -96,10 +96,11 @@ export default class FeedStatus {
   }
 
   /**
-   * Reassign all feed control labels.
+   * Retrieve all feed control labels.
    *
-   * Since the feed control is replaced after every request, we lose the button
-   * labels with it. This will reassign their values.
+   * Since the feed control element is removed on every request, we lose
+   * the button labels with it. This will retrieve and store the newly
+   * added labels.
    */
   updateControlLabels() {
     this.control.ready = this.feedControl.children('.feed-control-label-ready');

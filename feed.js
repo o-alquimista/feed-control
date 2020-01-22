@@ -21,7 +21,7 @@ import FeedStatus from './feed_status.js';
  * This component is responsible for managing the display of content that is
  * loaded via infinite scrolling (with a button).
  */
-export default class Feed {
+class Feed {
   /**
    * The 'feed' parameter is a unique identifier for the feed instance.
    *
@@ -299,3 +299,5 @@ export default class Feed {
     });
   }
 }
+
+exports.feed = Feed;
