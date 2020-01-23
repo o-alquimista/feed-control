@@ -3,7 +3,7 @@ The JavaScript implementation of the [W3C Feed Pattern](https://www.w3.org/TR/20
 
 This plugin is responsible for requesting the feed data from the server, interpreting pagination data to return the proper response, and setting up event handlers for keyboard navigation. There is no support for scroll-activated loading. Instead, this plugin configures a button that, when clicked, will request more items to be pushed onto the feed.
 
-Templating must still be handled separately. The usage instructions cover how to create the required element structure. The examples here include the necessary ARIA roles and attributes. I know it still requires a lot from you, but this will likely improve with time and development. Libraries such as React may help ease the templating setup one day.
+Templating must still be handled separately. The usage instructions cover how to create the required element structure. The examples here include the necessary ARIA roles and attributes. I know it still requires a lot from you, but this will likely improve with time, development and the right libraries.
 
 ## Installation and Usage
 Install the [package](https://www.npmjs.com/package/feed-control) as a dependency of your project using your preferred package manager.
@@ -35,6 +35,7 @@ feed.setup();
 
 That's it for the JavaScript part.
 
+### Creating the Feed element
 We're going to need some CSS for the next step.
 ```
 @import "~feed-control/css/feed.css";
@@ -49,7 +50,7 @@ We're going to need some CSS for the next step.
   <div class="feed-error-screen feed-screen feed-collapsible"></div>
   <div class="feed-nothing-here-screen feed-screen feed-collapsible"></div>
 
-  <section role="feed" aria-busy="false" data-target="" class="feed-data" aria-label=""></section>
+  <div role="feed" aria-busy="false" data-target="" class="feed-data" aria-label=""></div>
 </div>
 ```
 
@@ -57,10 +58,13 @@ Don't forget to set `data-target` to the URL that allows the Ajax request to ret
 
 Before we start building the Ajax response template, let me explain a few things.
 
-**Screens** are overlays for the `.feed-data` element. They are used during the initial loading process, when the request fails very early, or when there are no results. In other words, _screens should only be used to announce the status of the initial request_. Once feed articles are on the page, control labels kick in.
+**Screens** are overlays for the `.feed-data` element. They are used during the initial loading process, when the request fails very early, or when there are no results. In other words, _screens are only used to announce the status of the initial request_. Once the feed has loaded items, control labels kick in.
 
-**Control labels** are used to announce the status of the feed button, whether it's loading or ready for a new request or if there's nothing else to show. _They should only be used after the initial request has completed successfully._
+**Control labels** are used to announce the status of the feed button, whether it's loading or ready for a new request or if there's nothing else to show. _They are only used after the initial request has completed successfully._
 
+These types of elements exist so you can customize the responses given by the Feed. For example, you may want to set a `min-height` on the screens and center their contents, or maybe change the color scheme of a control label. In short, styling is completely up to you.
+
+### Creating the Ajax response template
 The response received from the URL specified through `data-target` should contain a paginated collection of `<article>` elements. The last of them should be the `.feed-control` element, within which the feed button and all of its control labels are located. These are the requirements for all but the last `<article>`:
 - Provide the pagination metadata via data attributes.
 - Indicate the first `<article>` of the set by giving it the class `.focus-me`, which tells the plugin to focus this element as soon as it is loaded. This ensures the correct TAB sequence is maintained.
@@ -97,4 +101,6 @@ The last `<article>`, which is `.feed-control`, holds the feed button and all of
 
 `data-label` is used by the plugin to give the appropriate label to the `.feed-control` element.
 
-Phew! That's it. Give it a try!
+Phew! That's it. If you got this far, I'd like to thank you for trying my plugin! Feel free to open issues about your questions, suggestions or bugs you may have found. Contributions are welcome, especially if they help reduce the amount of work needed to set this up.
+
+Now go see if it's working!
