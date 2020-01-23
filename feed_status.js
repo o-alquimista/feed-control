@@ -19,7 +19,7 @@ const $ = require('jquery');
  *
  * Handles contextual changes to the feed.
  */
-export default class FeedStatus {
+class FeedStatus {
   constructor(feed, feedData) {
     this.feed = feed;
     this.feedData = feedData;
@@ -109,3 +109,5 @@ export default class FeedStatus {
     this.control.nothingElse = this.feedControl.children('.feed-control-label-nothing-else');
   }
 }
+
+exports.feedStatus = FeedStatus;

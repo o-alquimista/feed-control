@@ -13,7 +13,7 @@
  */
 
 const $ = require('jquery');
-import FeedStatus from './feed_status.js';
+require('./feed_status.js');
 
 /**
  * An implementation of the W3C Feed Pattern.
