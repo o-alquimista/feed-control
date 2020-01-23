@@ -20,5 +20,8 @@
   "bugs": {
     "url": "https://github.com/o-alquimista/feed-control/issues"
   },
-  "homepage": "https://github.com/o-alquimista/feed-control#readme"
+  "homepage": "https://github.com/o-alquimista/feed-control#readme",
+  "dependencies": {
+    "jquery": "^3.4.1"
+  }
 }
