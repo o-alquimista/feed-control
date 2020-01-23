@@ -13,7 +13,7 @@
  */
 
 const $ = require('jquery');
-require('./feed_status.js');
+const FeedStatus = require('./feed_status.js');
 
 /**
  * An implementation of the W3C Feed Pattern.
@@ -300,4 +300,4 @@ class Feed {
   }
 }
 
-exports.feed = Feed;
+module.exports = Feed;

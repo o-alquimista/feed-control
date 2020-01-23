@@ -110,4 +110,4 @@ class FeedStatus {
   }
 }
 
-exports.feedStatus = FeedStatus;
+module.exports = FeedStatus;
