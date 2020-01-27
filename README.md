@@ -3,7 +3,7 @@ The JavaScript implementation of the [W3C Feed Pattern](https://www.w3.org/TR/20
 
 This plugin is responsible for requesting the feed data from the server, interpreting pagination data to return the proper response, and setting up event handlers for keyboard navigation. There is no support for scroll-activated loading. Instead, this plugin configures a button that, when clicked, will request more items to be pushed onto the feed.
 
-Templating must be handled separately. The usage instructions cover how to create the required element structure. The examples here include the necessary ARIA roles and attributes. I know it still requires a lot from you, but this will likely improve with time, development and the right libraries.
+Templating must be handled separately. The usage instructions cover how to create the required element structure. The code snippets here include the necessary ARIA roles and attributes. I know it still requires a lot from you, but this will likely improve with time, development and the right libraries.
 
 Wanna see how it works? Try it [here](https://kabum.dougsilva.me/categoria/hardware).
 
