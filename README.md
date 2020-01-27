@@ -5,6 +5,8 @@ This plugin is responsible for requesting the feed data from the server, interpr
 
 Templating must be handled separately. The usage instructions cover how to create the required element structure. The examples here include the necessary ARIA roles and attributes. I know it still requires a lot from you, but this will likely improve with time, development and the right libraries.
 
+Wanna see how it works? Try it [here](https://kabum.dougsilva.me/categoria/hardware).
+
 ## Installation and Usage
 Install the [package](https://www.npmjs.com/package/feed-control) as a dependency of your project using your preferred package manager.
 ```
@@ -65,7 +67,7 @@ Before we start building the Ajax response template, let me explain a few things
 These types of elements exist so you can customize the responses given by the Feed. For example, you may want to set a `min-height` on the screens and center their contents, or maybe change the color scheme of a control label. In short, styling is completely up to you.
 
 ### Creating the Ajax response template
-The response received from the URL specified through `data-target` should contain a paginated collection of `<article>` elements. The last of them should be the `.feed-control` element, within which the feed button and all of its control labels are located. These are the requirements for all but the last `<article>`:
+The response received from the URL specified through `data-target` should contain a paginated collection of `<article>` elements. The last of them should be the `.feed-control` element, within which the feed button and all of its control labels are located. These are the requirements for all, except the `.feed-control`:
 - Provide the pagination metadata via data attributes.
 - Indicate the first `<article>` of the set by giving it the class `.focus-me`, which tells the plugin to focus this element as soon as it is loaded. This ensures the correct TAB sequence is maintained.
 
@@ -73,12 +75,15 @@ The response received from the URL specified through `data-target` should contai
 <article class="feed-new-item focus-me" tabindex="-1" data-number-of-results="" data-page-size="" data-last-page="" aria-labelledby=""></article>
 ```
 
-- `data-number-of-results` represents the absolute total number of items.
-- `data-page-size` represents the number of items loaded per page.
-- `data-last-page` represents the total number of pages.
-- `aria-labelledby` should point to a label for the current `<article>`. You can use unique `id`s to reference them. This gives screen reader users a short title or description for the item while browsing the feed with the provided keyboard navigation commands.
+| Data attribute           | Description                                   |
+| ------------------------ | --------------------------------------------- |
+| `data-number-of-results` | The absolute total number of items            |
+| `data-page-size`         | The number of items loaded per page           |
+| `data-last-page`         | The total number of pages                     |
 
-The last `<article>`, which is `.feed-control`, holds the feed button and all of its labels.
+`aria-labelledby` should point to a label for the current `<article>` element. This gives screen reader users a short title or description for each item while browsing the feed with the provided keyboard navigation commands.
+
+Now we create the last `<article>`, which holds the feed button and all of its labels.
 ```
 <article class="feed-control feed-new-item" tabindex="-1">
   <button class="feed-control-label-ready feed-control-label feed-button feed-collapsible" type="button" data-label="fcl-ready">
