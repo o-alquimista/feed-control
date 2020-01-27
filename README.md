@@ -3,13 +3,13 @@ The JavaScript implementation of the [W3C Feed Pattern](https://www.w3.org/TR/20
 
 This plugin is responsible for requesting the feed data from the server, interpreting pagination data to return the proper response, and setting up event handlers for keyboard navigation. There is no support for scroll-activated loading. Instead, this plugin configures a button that, when clicked, will request more items to be pushed onto the feed.
 
-Templating must still be handled separately. The usage instructions cover how to create the required element structure. The examples here include the necessary ARIA roles and attributes. I know it still requires a lot from you, but this will likely improve with time, development and the right libraries.
+Templating must be handled separately. The usage instructions cover how to create the required element structure. The examples here include the necessary ARIA roles and attributes. I know it still requires a lot from you, but this will likely improve with time, development and the right libraries.
 
 ## Installation and Usage
 Install the [package](https://www.npmjs.com/package/feed-control) as a dependency of your project using your preferred package manager.
 ```
-npm install feed-control --save-dev
-yarn add feed-control --dev
+npm install feed-control
+yarn add feed-control
 ```
 
 Then import the module.
@@ -46,9 +46,9 @@ We're going to need some CSS for the next step.
 3. Create the `.feed-data` element, which is where the data returned from the server is appended into.
 ```
 <div id="feed">
-  <div class="feed-loading-screen feed-screen feed-collapsible feed-expanded"></div>
-  <div class="feed-error-screen feed-screen feed-collapsible"></div>
-  <div class="feed-nothing-here-screen feed-screen feed-collapsible"></div>
+  <div class="feed-loading-screen feed-collapsible feed-expanded"></div>
+  <div class="feed-error-screen feed-collapsible"></div>
+  <div class="feed-nothing-here-screen feed-collapsible"></div>
 
   <div role="feed" aria-busy="false" data-target="" class="feed-data" aria-label=""></div>
 </div>
@@ -70,7 +70,7 @@ The response received from the URL specified through `data-target` should contai
 - Indicate the first `<article>` of the set by giving it the class `.focus-me`, which tells the plugin to focus this element as soon as it is loaded. This ensures the correct TAB sequence is maintained.
 
 ```
-<article class="feed-item feed-new-item focus-me" tabindex="-1" data-number-of-results="" data-page-size="" data-last-page="" aria-labelledby=""></article>
+<article class="feed-new-item focus-me" tabindex="-1" data-number-of-results="" data-page-size="" data-last-page="" aria-labelledby=""></article>
 ```
 
 - `data-number-of-results` represents the absolute total number of items.
@@ -80,26 +80,26 @@ The response received from the URL specified through `data-target` should contai
 
 The last `<article>`, which is `.feed-control`, holds the feed button and all of its labels.
 ```
-<article class="feed-control feed-item feed-new-item" tabindex="-1">
-  <button class="feed-control-label feed-control-label-ready feed-button feed-collapsible" type="button" data-label="fcl-ready">
+<article class="feed-control feed-new-item" tabindex="-1">
+  <button class="feed-control-label-ready feed-control-label feed-button feed-collapsible" type="button" data-label="fcl-ready">
     <span id="fcl-ready">Ready</span>
   </button>
 
-  <div class="feed-control-label feed-control-label-loading feed-collapsible" data-label="fcl-loading">
+  <div class="feed-control-label-loading feed-control-label feed-collapsible" data-label="fcl-loading">
     <span id="fcl-loading">Loading</span>
   </div>
 
-  <button class="feed-control-label feed-control-label-error feed-button feed-collapsible" type="button" data-label="fcl-error">
+  <button class="feed-control-label-error feed-control-label feed-button feed-collapsible" type="button" data-label="fcl-error">
     <span id="fcl-error">Error</span>
   </button>
 
-  <div class="feed-control-label feed-control-label-nothing-else feed-collapsible" data-label="fcl-nothing-else">
+  <div class="feed-control-label-nothing-else feed-control-label feed-collapsible" data-label="fcl-nothing-else">
     <span id="fcl-nothing-else">Nothing Else</span>
   </div>
 </article>
 ```
 
-`data-label` is used by the plugin to give the appropriate label to the `.feed-control` element.
+The `.feed-control` element needs a label that corresponds to the currently visible control label. Each control label contains the attribute `data-label`, which takes an `id` that will be used to set the `aria-labelledby` of the `.feed-control` element.
 
 Phew! That's it. If you got this far, I'd like to thank you for trying my plugin! Feel free to open issues about your questions, suggestions or bugs you may have found. Contributions are welcome, especially if they help reduce the amount of work needed to set this up.
 
