@@ -56,7 +56,20 @@ We're going to need some CSS for the next step.
 </div>
 ```
 
-Don't forget to set `data-target` to the URL that allows the Ajax request to retrieve the feed data, then give the `role="feed"` element a label that describes the purpose of the feed, as [recommended by the W3C](https://www.w3.org/TR/wai-aria-practices-1.1/#wai-aria-roles-states-and-properties-9).
+Don't forget to set `data-target` to the path that returns the feed data.
+
+> If the request has to be made to the current URL, omit it or set `data-target` to an empty string. If the current URL has a route parameter such as a slug or id, pass this parameter alone through `data-target`.
+
+The request will also send a GET parameter named `page`. You should retrieve this parameter on the server to return the requested page.
+
+Finally, set `aria-label` on the `role="feed"` element to describe the purpose of the feed. You can also use this to inform the user about the keyboard shortcuts they can use to navigate the feed:
+
+| Keyboard shortcuts       | Function                              |
+| ------------------------ | ------------------------------------- |
+| PAGE UP                  | Navigate to the previous item         |
+| PAGE DOWN                | Navigate to the next item             |
+| CTRL + HOME              | Go to the first item                  |
+| CTRL + END               | Go to the last item                   |
 
 Before we start building the Ajax response template, let me explain a few things.
 
