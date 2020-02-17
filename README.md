@@ -58,7 +58,7 @@ We're going to need some CSS for the next step.
 
 Don't forget to set `data-target` to the path that returns the feed data.
 
-> If the request has to be made to the current URL, omit it or set `data-target` to an empty string. If the current URL has a route parameter such as a slug or id, pass this parameter alone through `data-target`.
+> If the request has to be made to the current URL, omit it or set `data-target` to an empty string.
 
 The request will also send a GET parameter named `page`. You should retrieve this parameter on the server to return the requested page.
 
